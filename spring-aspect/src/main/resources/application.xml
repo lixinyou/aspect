@@ -18,7 +18,7 @@
     <aop:aspect id="ExampleAspect" ref="exampleAspect">
       <aop:pointcut id="examplePoint"
         expression="execution(* com.java.spring.aspect.example.service.*.*())"/>
-      <aop:after-returning pointcut-ref="examplePoint" method="afterAdvice"/>
+      <aop:around pointcut-ref="examplePoint" method="afterAdvice"/>
     </aop:aspect>
   </aop:config>
 
