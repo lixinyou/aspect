@@ -9,4 +9,11 @@ public class RealSubject implements Subject {
   public void doHello() {
     System.out.println("call doHello()");
   }
+
+  @Override
+  public String toString() {
+    String str = "toString";
+    System.out.println(str);
+    return str;
+  }
 }

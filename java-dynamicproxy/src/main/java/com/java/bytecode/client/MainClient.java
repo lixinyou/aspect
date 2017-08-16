@@ -7,6 +7,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.lang.reflect.Proxy;
 import sun.misc.ProxyGenerator;
+import sun.reflect.Reflection;
 
 public class MainClient {
 
@@ -15,7 +16,7 @@ public class MainClient {
     Subject proxySubject = (Subject) Proxy.newProxyInstance(Subject.class.getClassLoader(),
         new Class[]{Subject.class}, new ProxyHandler(real));
     proxySubject.doSomething();
-
+    proxySubject.toString();
     //生成代理类的class
     createProxyClassFile();
   }

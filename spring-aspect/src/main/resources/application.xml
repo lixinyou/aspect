@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:context="http://www.springframework.org/schema/context"
+  xmlns:aop="http://www.springframework.org/schema/aop"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+  http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+  http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+  <!-- 组件自动扫描 -->
+  <context:component-scan base-package="com.java.spring.aspect.example"></context:component-scan>
+
+  <!-- 开启aop代理 -->
+  <aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+
+  <!-- Schema-based的aop配置 -->
+  <aop:config>
+    <aop:aspect id="ExampleAspect" ref="exampleAspect">
+      <aop:pointcut id="examplePoint"
+        expression="execution(* com.java.spring.aspect.example.service.*.*())"/>
+      <aop:after-returning pointcut-ref="examplePoint" method="afterAdvice"/>
+    </aop:aspect>
+  </aop:config>
+
+</beans>
